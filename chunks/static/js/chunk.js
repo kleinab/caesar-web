@@ -564,6 +564,9 @@ function getText($textentry) {
   }
   if ($.browser.mozilla || $.browser.opera || $.browser.msie) {
     content.find("br").replaceWith("\n");
+    if (content.lastIndexOf("\n") == content.length-2) {
+        content = content.slice(0, content.length-2);
+    }
   }
   content = content.text();
   return content;

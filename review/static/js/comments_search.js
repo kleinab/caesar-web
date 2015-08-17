@@ -6,16 +6,21 @@
 function cursorAtEnd($textentry) {
   // getText() found in chunk.js
   var content = getText($textentry);
+  console.log("content: "+content);
 
   // Get line number of cursor
   var lines = content.split("\n");
+  console.log(lines);
   var line_text = window.getSelection().getRangeAt(0).commonAncestorContainer.textContent;
   var line_num = lines.indexOf(line_text);
+  console.log("line_num: "+line_num);
 
   // Check if cursor is on last line
   if (line_num == lines.length - 1) {
     var cursor_position = window.getSelection().getRangeAt(0).startOffset;
     var length = line_text.length;
+    console.log("cursor_position: "+cursor_position);
+    console.log("length: "+length);
 
     // Check if cursor is at last character of the line
     if (cursor_position == length) {
